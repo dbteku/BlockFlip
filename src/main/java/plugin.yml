@@ -1,0 +1,8 @@
+name: BlockFlip
+version: 1.0.0
+description: Locking placement of rotatable blocks.
+main: com.dbteku.blockflip.main.BlockFlipPlugin
+api-version: 1.13
+commands:
+   bfp:
+     description: /bfp help for more info.

@@ -18,6 +18,7 @@ configurations {
 dependencies {
 	compile 'com.google.code.gson:gson:2.8.2'
     provided name: 'spigot-1.15.1'
+    provided name: 'MCEventCore'
     testCompile 'junit:junit:4.12'
 }
 
