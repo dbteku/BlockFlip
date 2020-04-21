@@ -1,0 +1,41 @@
+plugins {
+    id 'java'
+}
+
+repositories {
+   	flatDir {
+       dirs 'Libraries'
+   	}
+    jcenter()
+   	maven { url 'https://jitpack.io' }
+}
+
+configurations {
+    provided
+    compile.extendsFrom provided
+}
+
+dependencies {
+	compile 'com.google.code.gson:gson:2.8.2'
+    provided name: 'spigot-1.15.1'
+    testCompile 'junit:junit:4.12'
+}
+
+
+jar {
+    dependsOn configurations.runtime
+    from {
+        (configurations.runtime - configurations.provided).collect {
+            it.isDirectory() ? it : zipTree(it)
+        }
+    } {
+
+    }
+}
+
+jar {
+   baseName = 'BlockFlip'
+   from('src/main/java') {
+      include '**'
+   }
+}
